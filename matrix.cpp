@@ -85,6 +85,18 @@ int matrix::pokaz(int x, int y) const {
 }
 
 
+// Obracanie macierzy
+matrix& matrix::dowroc() {
+    matrix temp(size);
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
+            temp.data[j][i] = data[i][j];
+        }
+    }
+    *this = temp;
+    return *this;
+}
+
 
 
 
