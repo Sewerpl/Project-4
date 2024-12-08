@@ -67,9 +67,8 @@ public:
     bool operator>(const matrix& m) const;
     bool operator<(const matrix& m) const;
 
-
-
-
+        // Operatory wejścia/wyjścia
+    friend std::ostream& operator<<(std::ostream& o, const matrix& m);
 };
 
 #endif // MATRIX_H
