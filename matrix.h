@@ -29,6 +29,19 @@ public:
     matrix& wstaw(int x, int y, int wartosc);
     int pokaz(int x, int y) const;
 
+        // Operacje na macierzach
+    matrix& dowroc();
+    matrix& losuj();
+    matrix& losuj(int x);
+    matrix& diagonalna(int* t);
+    matrix& diagonalna_k(int k, int* t);
+    matrix& kolumna(int x, int* t);
+    matrix& wiersz(int y, int* t);
+    matrix& przekatna();
+    matrix& pod_przekatna();
+    matrix& nad_przekatna();
+    matrix& szachownica();
+
 
 
 
