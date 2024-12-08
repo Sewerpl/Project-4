@@ -58,6 +58,16 @@ matrix::~matrix() {
 }
 
 
+// Alokacja pamięci
+matrix& matrix::alokuj(int n) {
+    if (size != n) {
+        freeMemory();
+        allocateMemory(n);
+    }
+    return *this;
+}
+
+
 
 
 
