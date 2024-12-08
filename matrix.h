@@ -62,6 +62,11 @@ public:
     matrix& operator-=(int a);
     matrix& operator*=(int a);
 
+        // Operatory porównania
+    bool operator==(const matrix& m) const;
+    bool operator>(const matrix& m) const;
+    bool operator<(const matrix& m) const;
+
 
 
 
