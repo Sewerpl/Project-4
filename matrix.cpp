@@ -41,6 +41,17 @@ matrix::matrix(int n, int* t) : data(nullptr), size(0) {
 
 
 
+// Konstruktor kopiujący
+matrix::matrix(const matrix& m) : data(nullptr), size(0) {
+    allocateMemory(m.size);
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
+            data[i][j] = m.data[i][j];
+        }
+    }
+}
+
+
 
 
 
