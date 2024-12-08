@@ -53,6 +53,10 @@ public:
     friend matrix operator*(int a, matrix& m);
     friend matrix operator-(int a, matrix& m);
 
+        // Operatory inkrementacji/dekrementacji
+    matrix& operator++(int);
+    matrix& operator--(int);
+
 
 
 
