@@ -108,6 +108,15 @@ matrix& matrix::losuj() {
     return *this;
 }
 
+// Operator << do wypisywania
+std::ostream& operator<<(std::ostream& o, const matrix& m) {
+    for (int i = 0; i < m.size; ++i) {
+        for (int j = 0; j < m.size; ++j) {
+            o << std::setw(4) << m.data[i][j];
+        }
+        o << '\n';
+    }
+
 
 
 
