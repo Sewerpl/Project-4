@@ -29,6 +29,16 @@ matrix::matrix(int n) : data(nullptr), size(0) {
     allocateMemory(n);
 }
 
+// Konstruktor z tablicą
+matrix::matrix(int n, int* t) : data(nullptr), size(0) {
+    allocateMemory(n);
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            data[i][j] = t[i * n + j];
+        }
+    }
+}
+
 
 
 
