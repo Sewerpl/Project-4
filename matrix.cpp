@@ -76,6 +76,15 @@ matrix& matrix::wstaw(int x, int y, int wartosc) {
 }
 
 
+// Pokazywanie wartości
+int matrix::pokaz(int x, int y) const {
+    if (x >= 0 && x < size && y >= 0 && y < size) {
+        return data[x][y];
+    }
+    return 0;
+}
+
+
 
 
 
