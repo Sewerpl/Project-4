@@ -52,6 +52,12 @@ matrix::matrix(const matrix& m) : data(nullptr), size(0) {
 }
 
 
+// Destruktor
+matrix::~matrix() {
+    freeMemory();
+}
+
+
 
 
 
