@@ -24,6 +24,11 @@ void matrix::allocateMemory(int n) {
 // Konstruktor domyślny
 matrix::matrix() : data(nullptr), size(0) {}
 
+// Konstruktor z rozmiarem
+matrix::matrix(int n) : data(nullptr), size(0) {
+    allocateMemory(n);
+}
+
 
 
 
