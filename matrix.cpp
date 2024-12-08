@@ -12,6 +12,16 @@ void matrix::freeMemory() {
     size = 0;
 }
 
+// Metoda pomocnicza do alokacji pamięci
+void matrix::allocateMemory(int n) {
+    data = new int*[n];
+    for (int i = 0; i < n; ++i) {
+        data[i] = new int[n]{0};
+    }
+    size = n;
+}
+
+
 
 
 
