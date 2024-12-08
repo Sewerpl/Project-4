@@ -57,6 +57,11 @@ public:
     matrix& operator++(int);
     matrix& operator--(int);
 
+        // Operatory przypisania z operacją
+    matrix& operator+=(int a);
+    matrix& operator-=(int a);
+    matrix& operator*=(int a);
+
 
 
 
