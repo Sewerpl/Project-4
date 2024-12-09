@@ -2,72 +2,115 @@
 #define MATRIX_H
 
 #include <iostream>
-#include <cstdlib> // dla rand() i srand()
-#include <ctime>   // dla time()
-#include <iomanip> // dla std::setw()
+#include <cstdlib>
+#include <ctime>
+#include <iomanip>
 
+/**
+ * @class matrix
+ * @brief Klasa reprezentująca macierz kwadratową.
+ * 
+ * Klasa umożliwia zarządzanie dynamiczną macierzą kwadratową oraz wykonanie na niej operacji arytmetycznych,
+ * modyfikacji, losowego wypełnienia i innych działań.
+ */
 class matrix {
 private:
-    int** data;  // dynamiczna tablica do przechowywania macierzy
-    int size;    // rozmiar macierzy
+    int** data;  ///< Wskaźnik do dynamicznej tablicy przechowującej elementy macierzy.
+    int size;    ///< Rozmiar macierzy (liczba wierszy/kolumn).
 
-    void freeMemory(); // metoda pomocnicza do zwolnienia pamięci
-    void allocateMemory(int n); // metoda pomocnicza do alokacji pamięci
+    /**
+     * @brief Zwolnienie pamięci zajmowanej przez macierz.
+     */
+    void freeMemory();
+
+    /**
+     * @brief Alokacja pamięci dla macierzy o zadanym rozmiarze.
+     * 
+     * @param n Rozmiar macierzy.
+     */
+    void allocateMemory(int n);
 
 public:
-    // Konstruktor i destruktor
+    /**
+     * @brief Konstruktor domyślny. Tworzy pustą macierz.
+     */
     matrix();
+
+    /**
+     * @brief Konstruktor tworzący macierz o zadanym rozmiarze.
+     * 
+     * @param n Rozmiar macierzy.
+     */
     matrix(int n);
+
+    /**
+     * @brief Konstruktor tworzący macierz i wypełniający ją danymi z tablicy.
+     * 
+     * @param n Rozmiar macierzy.
+     * @param t Tablica jednowymiarowa z danymi do wpisania.
+     */
     matrix(int n, int* t);
-    matrix(const matrix& m); // konstruktor kopiujący
+
+    /**
+     * @brief Konstruktor kopiujący.
+     * 
+     * @param m Macierz do skopiowania.
+     */
+    matrix(const matrix& m);
+
+    /**
+     * @brief Destruktor. Zwalnia pamięć zajmowaną przez macierz.
+     */
     ~matrix();
 
-    // Metody zarządzania pamięcią
+    /**
+     * @brief Alokacja pamięci dla macierzy o zadanym rozmiarze.
+     * 
+     * @param n Rozmiar macierzy.
+     * @return Referencja do obiektu klasy matrix.
+     */
     matrix& alokuj(int n);
 
-    // Metody dostępu i modyfikacji elementów
+    /**
+     * @brief Wstawia wartość do macierzy.
+     * 
+     * @param x Indeks wiersza.
+     * @param y Indeks kolumny.
+     * @param wartosc Wartość do wstawienia.
+     * @return Referencja do obiektu klasy matrix.
+     */
     matrix& wstaw(int x, int y, int wartosc);
+
+    /**
+     * @brief Zwraca wartość z macierzy.
+     * 
+     * @param x Indeks wiersza.
+     * @param y Indeks kolumny.
+     * @return Wartość elementu macierzy.
+     */
     int pokaz(int x, int y) const;
 
-        // Operacje na macierzach
+    /**
+     * @brief Transponuje macierz (zamienia wiersze z kolumnami).
+     * 
+     * @return Referencja do obiektu klasy matrix.
+     */
     matrix& dowroc();
+
+    /**
+     * @brief Wypełnia macierz losowymi liczbami od 0 do 9.
+     * 
+     * @return Referencja do obiektu klasy matrix.
+     */
     matrix& losuj();
-    matrix& losuj(int x);
-    matrix& diagonalna(int* t);
-    matrix& diagonalna_k(int k, int* t);
-    matrix& kolumna(int x, int* t);
-    matrix& wiersz(int y, int* t);
-    matrix& przekatna();
-    matrix& pod_przekatna();
-    matrix& nad_przekatna();
-    matrix& szachownica();
 
-        // Operatory arytmetyczne
-    matrix& operator+(matrix& m);
-    matrix& operator*(matrix& m);
-    matrix& operator+(int a);
-    matrix& operator*(int a);
-    matrix& operator-(int a);
-
-    friend matrix operator+(int a, matrix& m);
-    friend matrix operator*(int a, matrix& m);
-    friend matrix operator-(int a, matrix& m);
-
-        // Operatory inkrementacji/dekrementacji
-    matrix& operator++(int);
-    matrix& operator--(int);
-
-        // Operatory przypisania z operacją
-    matrix& operator+=(int a);
-    matrix& operator-=(int a);
-    matrix& operator*=(int a);
-
-        // Operatory porównania
-    bool operator==(const matrix& m) const;
-    bool operator>(const matrix& m) const;
-    bool operator<(const matrix& m) const;
-
-        // Operatory wejścia/wyjścia
+    /**
+     * @brief Operator wypisywania macierzy na standardowe wyjście.
+     * 
+     * @param o Strumień wyjściowy.
+     * @param m Obiekt macierzy do wypisania.
+     * @return Referencja do strumienia wyjściowego.
+     */
     friend std::ostream& operator<<(std::ostream& o, const matrix& m);
 };
 
