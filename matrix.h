@@ -44,7 +44,7 @@ public:
     matrix(int n);
 
     /**
-     * @brief Konstruktor tworzący macierz i wypełniający ją danymi z tablicy.
+     * @brief Konstruktor tworzący macierz i wypełniający ją danymi z tablicy
      * 
      * @param n Rozmiar macierzy.
      * @param t Tablica jednowymiarowa z danymi do wpisania.
